@@ -1,18 +1,18 @@
 
 # SRM Full Stack Engineering Challenge - BFHL
 
-🚀 **Live Demos**
+**Live Demos**
 - **Frontend Web App:** [https://bfhl-43ty.vercel.app/](https://bfhl-43ty.vercel.app/)
 - **Backend API Base URL:** [https://bfhl-mauve.vercel.app/](https://bfhl-mauve.vercel.app/) *(Endpoint: POST `/bfhl`)*
 
 ---
 
-## 🎯 Objective
+## Objective
 A robust REST API that processes an array of directed graph edges (nodes), calculates hierarchical relationships, detects cycles, and calculates tree depths. The backend is paired with a sleek, responsive frontend that visualizes the resulting hierarchies, statistics, and handles edge cases dynamically.
 
 ---
 
-## 💻 Tech Stack
+## Tech Stack
 
 ### **Frontend**
 ![Next.js](https://img.shields.io/badge/Next.js-black?style=for-the-badge&logo=next.js&logoColor=white)
@@ -29,7 +29,7 @@ A robust REST API that processes an array of directed graph edges (nodes), calcu
 
 ---
 
-## ✨ Key Features
+## Key Features
 - **Strict Input Validation:** Automatically filters out invalid nodes, self-loops, and improper formats.
 - **Cycle Detection & Isolation:** Uses DFS/Union-Find logic to securely separate valid hierarchical trees from cyclical dependencies.
 - **Intelligent Tiebreakers:** Calculates exact maximum depths and resolves ties using lexicographical node sorting.
@@ -38,7 +38,7 @@ A robust REST API that processes an array of directed graph edges (nodes), calcu
 
 ---
 
-## 🔌 API Specification
+## API Specification
 
 ### `POST /bfhl`
 **Headers:** `Content-Type: application/json`
@@ -97,7 +97,7 @@ A robust REST API that processes an array of directed graph edges (nodes), calcu
 
 ---
 
-## 🛠️ Local Setup & Installation
+## Local Setup & Installation
 
 ### 1. Clone the Repository
 ```bash

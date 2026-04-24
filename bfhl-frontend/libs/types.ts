@@ -1,8 +1,12 @@
+export interface TreeData {
+  [key: string]: TreeData;
+}
+
 export interface HierarchyObject {
   root: string;
-  tree: object;
+  tree: TreeData;
   depth?: number;
-  has_cycle?: true;
+  has_cycle?: boolean;
 }
 
 export interface BfhlResponse {

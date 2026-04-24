@@ -1,5 +1,5 @@
 import "dotenv/config";
-import express from "express";
+import express, { Request, Response } from "express";
 import cors from "cors";
 import bfhlRoutes from "./routes/bfhl.routes";
 
@@ -14,7 +14,7 @@ app.use(
 );
 app.use(express.json());
 
-app.get("/", (_req, res) => {
+app.get("/", (_req: Request, res: Response) => {
   res.json({ status: "ok", message: "BFHL API is running" });
 });
 
@@ -26,3 +26,4 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 export default app;
+ç;

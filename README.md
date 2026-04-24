@@ -46,7 +46,7 @@ A robust REST API that processes an array of directed graph edges (nodes), calcu
 #### **Request Body**
 ```json
 {
-  "data": ["X->Y", "Y->Z", "P->Q", "Q->R", "M->N", "N->O", "O->M"]
+  "data": ["A->B", "A->C", "B->D"]
 }
 ```
 
@@ -58,39 +58,24 @@ A robust REST API that processes an array of directed graph edges (nodes), calcu
     "college_roll_number": "RA2311029010013",
     "hierarchies": [
         {
-            "root": "X",
+            "root": "A",
             "tree": {
-                "X": {
-                    "Y": {
-                        "Z": {}
-                    }
+                "A": {
+                    "B": {
+                        "D": {}
+                    },
+                    "C": {}
                 }
             },
             "depth": 3
-        },
-        {
-            "root": "P",
-            "tree": {
-                "P": {
-                    "Q": {
-                        "R": {}
-                    }
-                }
-            },
-            "depth": 3
-        },
-        {
-            "root": "M",
-            "tree": {},
-            "has_cycle": true
         }
     ],
     "invalid_entries": [],
     "duplicate_edges": [],
     "summary": {
-        "total_trees": 2,
-        "total_cycles": 1,
-        "largest_tree_root": "P"
+        "total_trees": 1,
+        "total_cycles": 0,
+        "largest_tree_root": "A"
     }
 }
 ```

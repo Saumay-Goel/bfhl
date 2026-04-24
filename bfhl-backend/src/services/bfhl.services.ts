@@ -201,7 +201,9 @@ function buildFullResponse(data: string[]) {
       const treeRoot =
         compRoots.length > 0 ? compRoots.sort()[0] : [...component].sort()[0];
 
-      const tree = buildTree(treeRoot, children);
+      const treeContent = buildTree(treeRoot, children);
+      const tree = { [treeRoot]: treeContent };
+
       const depth = getDepth(treeRoot, children);
 
       hierarchies.push({ root: treeRoot, tree, depth });

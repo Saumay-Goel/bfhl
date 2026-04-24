@@ -44,9 +44,8 @@ function validateAndClassify(data: string[]): {
 }
 
 function buildGroups(validEdges: string[]): Map<string, string[]> {
-  // adjacency: parent -> children[]
   const children = new Map<string, string[]>();
-  const parentOf = new Map<string, string>(); // child -> its first parent
+  const parentOf = new Map<string, string>();
   const allNodes = new Set<string>();
 
   for (const edge of validEdges) {
@@ -55,13 +54,11 @@ function buildGroups(validEdges: string[]): Map<string, string[]> {
     allNodes.add(parent);
     allNodes.add(child);
 
-    // multi-parent rule: first-encountered parent wins
     if (!parentOf.has(child)) {
       parentOf.set(child, parent);
       if (!children.has(parent)) children.set(parent, []);
       children.get(parent)!.push(child);
     }
-    // else: silently discard
   }
 
   return children;
@@ -84,7 +81,6 @@ function findRoots(validEdges: string[]): {
 
     if (!children.has(parent)) children.set(parent, []);
 
-    // multi-parent: first parent wins
     if (!childNodes.has(child)) {
       children.get(parent)!.push(child);
       childNodes.add(child);
@@ -103,7 +99,6 @@ function getConnectedComponents(
   allNodes: Set<string>,
   children: Map<string, string[]>,
 ): Set<string>[] {
-  // Union-Find to group nodes into components
   const parent = new Map<string, string>();
   for (const n of allNodes) parent.set(n, n);
 
@@ -199,12 +194,10 @@ function buildFullResponse(data: string[]) {
 
     if (cyclic) {
       totalCycles++;
-      // root = lexicographically smallest node
       const cycleRoot = [...component].sort()[0];
       hierarchies.push({ root: cycleRoot, tree: {}, has_cycle: true });
     } else {
       totalTrees++;
-      // pick the actual root (should be exactly one in a valid tree)
       const treeRoot =
         compRoots.length > 0 ? compRoots.sort()[0] : [...component].sort()[0];
 
